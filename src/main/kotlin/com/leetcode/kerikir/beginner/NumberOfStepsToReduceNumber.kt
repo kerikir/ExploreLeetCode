@@ -11,12 +11,30 @@ package com.leetcode.kerikir.beginner
  * Время =  мс ( %)
  * Память =  МБ ( %)
  *
- * Временная сложность = O()
- * Пространственная сложность = O()
+ * Временная сложность = O(2 * logN) = O(logN)
+ * Пространственная сложность = O(0)
  */
 class Solution6 {
     fun numberOfSteps(num: Int): Int {
+        var number = num
+        var isEven = false
 
+        var numberOfSteps = 0
+
+        while (number > 0) {
+            isEven = (number % 2) == 0
+
+            if (isEven) {
+                number /= 2
+
+            } else {
+                number--
+            }
+
+            numberOfSteps++
+        }
+
+        return numberOfSteps
     }
 }
 

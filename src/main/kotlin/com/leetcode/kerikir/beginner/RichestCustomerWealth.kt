@@ -17,7 +17,23 @@ package com.leetcode.kerikir.beginner
  */
 class Solution3 {
     fun maximumWealth(accounts: Array<IntArray>): Int {
-        return 0
+
+        var maxSum = 0
+        var currentSum = 0
+
+        for (account in accounts) {
+            currentSum = 0
+
+            for (sum in account) {
+                currentSum += sum
+            }
+
+            if (currentSum > maxSum) {
+                maxSum = currentSum
+            }
+        }
+
+        return maxSum
     }
 }
 

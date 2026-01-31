@@ -9,7 +9,7 @@ package com.leetcode.kerikir.beginner
  *              -10^6 <= K <= 10^6
  *
  * Время = 0 мс (100,00 %)
- * Память = 42,80 МБ (35,59 %)
+ * Память = 41,85 МБ (95,34 %)
  *
  * Временная сложность = O(N)
  * Пространственная сложность = O(1)
@@ -17,8 +17,8 @@ package com.leetcode.kerikir.beginner
 class Solution2 {
     fun runningSum(nums: IntArray) : IntArray {
 
-        for (i in 1 until nums.size) {
-            nums[i] += nums[i - 1]
+        for (i in 1..(nums.size - 1)) {
+            nums[i] = nums[i - 1] + nums[i]
         }
 
         return nums

@@ -15,14 +15,40 @@ package com.leetcode.kerikir.beginner
  */
 class Solution5 {
     fun fizzBuzz(n: Int): List<String> {
+        val result = mutableListOf<String>()
 
+        var i = 0
+        var isDividedInto3 = false
+        var isDividedInto5 = false
+
+        while (i < n) {
+            i++
+
+            isDividedInto3 = (i % 3) == 0
+            isDividedInto5 = (i % 5) == 0
+
+            if (isDividedInto3 && isDividedInto5) {
+                result.add("FizzBuzz")
+
+            } else if (isDividedInto3) {
+                result.add("Fizz")
+
+            } else if (isDividedInto5) {
+                result.add("Buzz")
+
+            } else {
+                result.add(i.toString())
+            }
+        }
+
+        return result
     }
 }
 
 
 
 fun main() {
-    val n = 3
+    val n = 5
     val result = Solution5().fizzBuzz(n)
     println(result)
 }

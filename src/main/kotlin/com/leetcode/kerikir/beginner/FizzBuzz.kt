@@ -7,11 +7,11 @@ package com.leetcode.kerikir.beginner
  * Задание: Сформировать строку исходя из входного числа
  * Ограничения: 1 <= N <= 10_000
  *
- * Время =  мс ( %)
+ * Время = 0 мс ( %)
  * Память =  МБ ( %)
  *
- * Временная сложность = O()
- * Пространственная сложность = O()
+ * Временная сложность = O(N)
+ * Пространственная сложность = O(N)
  */
 class Solution5 {
     fun fizzBuzz(n: Int): List<String> {
@@ -49,6 +49,6 @@ class Solution5 {
 
 fun main() {
     val n = 5
-    val result = Solution5().fizzBuzz(n)
+    val result = Solution5().fizzBuzz(n)    // [1, 2, Fizz, 4, Buzz]
     println(result)
 }

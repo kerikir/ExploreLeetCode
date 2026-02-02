@@ -9,23 +9,23 @@ package com.leetcode.kerikir.beginner
  * Ограничения: 0 <= N <= 1_000_000
  *
  * Время = 0 мс (100.00 %)
- * Память = 40.45 МБ (42.67 %)
+ * Память = 39.53 МБ (100.00 %)
  *
  * Временная сложность = O(2 * logN) = O(logN)
  * Пространственная сложность = O(1)
  */
-class Solution6 {
+class Solution9 {
     fun numberOfSteps(num: Int): Int {
         var number = num
-        var isEven = false
 
         var numberOfSteps = 0
 
         while (number > 0) {
-            isEven = (number % 2) == 0
 
-            if (isEven) {
-                number /= 2
+            // Проверка четности числа - побитовое умножение на 1 (проверка последней цифры)
+            if (number and 1 == 0) {
+                // Деление числа на 2 - сдвиг битов вправо на 1
+                number = number shr 1
 
             } else {
                 number--
@@ -41,7 +41,7 @@ class Solution6 {
 
 
 fun main() {
-    val n = 14
-    val result = Solution6().numberOfSteps(n)
+    val n = 123
+    val result = Solution9().numberOfSteps(n) // 12 шагов
     println(result)
 }

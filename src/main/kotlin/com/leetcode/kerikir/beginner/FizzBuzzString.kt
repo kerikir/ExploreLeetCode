@@ -9,13 +9,13 @@ package com.leetcode.kerikir.beginner
  * Задание: Сформировать строку исходя из входного числа
  * Ограничения: 1 <= N <= 10_000
  *
- * Время = 1 мс (100.00 %)
- * Память = 44.80 МБ (96.70 %)
+ * Время = 3 мс (29.72 %)
+ * Память = 46.12 МБ (25.47 %)
  *
  * Временная сложность = O(N)
  * Пространственная сложность = O(1)
  */
-class Solution5 {
+class Solution8 {
     fun fizzBuzz(n: Int): List<String> {
         val result = mutableListOf<String>()
 
@@ -26,21 +26,24 @@ class Solution5 {
         while (i < n) {
             i++
 
+            var resultString = ""
+
             isDividedInto3 = (i % 3) == 0
             isDividedInto5 = (i % 5) == 0
 
-            if (isDividedInto3 && isDividedInto5) {
-                result.add("FizzBuzz")
+            if (isDividedInto3) {
+                resultString += "Fizz"
 
-            } else if (isDividedInto3) {
-                result.add("Fizz")
-
-            } else if (isDividedInto5) {
-                result.add("Buzz")
-
-            } else {
-                result.add(i.toString())
             }
+            if (isDividedInto5) {
+                resultString += "Buzz"
+
+            }
+            if (resultString.isEmpty()) {
+                resultString += i
+            }
+
+            result.add(resultString)
         }
 
         return result
@@ -51,6 +54,6 @@ class Solution5 {
 
 fun main() {
     val n = 5
-    val result = Solution5().fizzBuzz(n)    // [1, 2, Fizz, 4, Buzz]
+    val result = Solution8().fizzBuzz(n)    // [1, 2, Fizz, 4, Buzz]
     println(result)
 }

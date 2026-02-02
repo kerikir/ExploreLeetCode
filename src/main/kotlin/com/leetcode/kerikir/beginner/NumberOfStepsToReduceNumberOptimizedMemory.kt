@@ -8,8 +8,8 @@ package com.leetcode.kerikir.beginner
  * Задание: Количество шагов для уменьшения числа до нуля
  * Ограничения: 0 <= N <= 1_000_000
  *
- * Время =  мс ( %)
- * Память =  МБ ( %)
+ * Время = 0 мс (100.00 %)
+ * Память = 39.53 МБ (100.00 %)
  *
  * Временная сложность = O(2 * logN) = O(logN)
  * Пространственная сложность = O(1)
@@ -17,24 +17,18 @@ package com.leetcode.kerikir.beginner
 class Solution9 {
     fun numberOfSteps(num: Int): Int {
         var number = num
-        var isEven = false
-
-        // Число для уменьшения на 1 (сброс последней цифры в 0)
-        val value = 0b11111111111111111110
 
         var numberOfSteps = 0
 
         while (number > 0) {
-            // Проверка четности числа - побитовое умножение на 1 (проверка последней цифры)
-            isEven = (number and 1) == 0
 
-            if (isEven) {
+            // Проверка четности числа - побитовое умножение на 1 (проверка последней цифры)
+            if (number and 1 == 0) {
                 // Деление числа на 2 - сдвиг битов вправо на 1
                 number = number shr 1
 
             } else {
-                // Вычитание 1 - сброс последней цифры в 0
-                number = number and value
+                number--
             }
 
             numberOfSteps++
@@ -48,6 +42,6 @@ class Solution9 {
 
 fun main() {
     val n = 123
-    val result = Solution9().numberOfSteps(n)
+    val result = Solution9().numberOfSteps(n) // 12 шагов
     println(result)
 }
